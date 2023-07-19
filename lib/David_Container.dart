@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:practice_app/StyledText.dart';
+import 'package:practice_app/dice_roller.dart';
+
+var startAlignment = Alignment.topLeft;
+var endAlignment = Alignment.bottomRight;
+
 class DavidContainer extends StatelessWidget {
-  const DavidContainer({super.key});
+   const DavidContainer(
+    this.color1,
+    this.color2, {
+    super.key,
+  });
+  final Color color1;
+  final Color color2;
+
 
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color.fromARGB(255, 4, 208, 246),
-            Colors.blueAccent],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          colors: [color1, color2],
+          begin: startAlignment,
+          end: endAlignment,
         ),
       ),
       child: const Center(
-        child: StyledText()
+        child: DiceRoller()
       ),
     );
   }
